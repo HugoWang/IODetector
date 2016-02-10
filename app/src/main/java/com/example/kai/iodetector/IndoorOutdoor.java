@@ -7,20 +7,17 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class IndoorOutdoor extends AppCompatActivity implements SensorEventListener {
 
-    TextView txt1, txt2, txt3, txt4, txt5;
-    TextView light, mag, gsm, acc, result;
-    public double light_val, mag_val, gsm_val, acc_val;
+    TextView txt1, txt2, txt4, txt5;
+    TextView light, mag, acc, result;
+    public double light_val, mag_val,acc_val;
     SensorManager sensorManager;
 
     @Override
@@ -34,8 +31,6 @@ public class IndoorOutdoor extends AppCompatActivity implements SensorEventListe
         txt1.setTypeface(tf);
         txt2 = (TextView)findViewById(R.id.txt2);
         txt2.setTypeface(tf);
-        txt3 = (TextView)findViewById(R.id.txt3);
-        txt3.setTypeface(tf);
         txt4 = (TextView)findViewById(R.id.txt4);
         txt4.setTypeface(tf);
         txt5 = (TextView)findViewById(R.id.txt5);
@@ -43,13 +38,10 @@ public class IndoorOutdoor extends AppCompatActivity implements SensorEventListe
 
         light = (TextView)findViewById(R.id.light_value);
         mag = (TextView)findViewById(R.id.mag_value);
-        gsm = (TextView)findViewById(R.id.gsm_value);
         acc = (TextView)findViewById(R.id.acc_value);
         result = (TextView)findViewById(R.id.result);
 
         light.setTypeface(tf);
-        mag.setTypeface(tf);
-        gsm.setTypeface(tf);
         acc.setTypeface(tf);
         result.setTypeface(tf);
 
@@ -95,10 +87,9 @@ public class IndoorOutdoor extends AppCompatActivity implements SensorEventListe
         {
             case Sensor.TYPE_MAGNETIC_FIELD:
                 sb = new StringBuilder();
-                sb.append(values[0]);
                 mag_val = Math.sqrt(values[0]*values[0]+values[1]*values[1]+values[2]*values[2]);
                 sb.append(mag_val);
-                mag.setText(sb.toString()+" asu");
+                mag.setText(sb.toString()+" uT");
                 break;
 
             case Sensor.TYPE_LIGHT:
@@ -110,13 +101,28 @@ public class IndoorOutdoor extends AppCompatActivity implements SensorEventListe
 
             case Sensor.TYPE_ACCELEROMETER:
                 sb = new StringBuilder();
-                acc_val = Math.sqrt(values[0]*values[0]+values[1]*values[1]+values[2]*values[2]);
+                acc_val = Math.sqrt(values[0]*values[0]+values[1]*values[1]+values[2]*values[2])/10;
                 sb.append(acc_val);
                 acc.setText(sb.toString()+" m/s2");
                 break;
         }
 
-
+        if(light_val>900){
+            result.setText("OUTDOOR");
+        }
+        else{
+            if(mag_val>78){
+                if(acc_val>1.3){
+                    result.setText("OUTDOOR_NIGHT");
+                }
+                else{
+                    result.setText("OUTDOOR_BUS");
+                }
+            }
+            else{
+                result.setText("INDOOR");
+            }
+        }
 
     }
 

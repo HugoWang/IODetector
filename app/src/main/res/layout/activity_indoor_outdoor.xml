@@ -72,39 +72,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
-        android:background="@drawable/background_rounded_single"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="9dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginRight="9dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="GSM Signal Strength:"
-            android:paddingLeft="10dp"
-            android:paddingRight="6dp"
-            android:id="@+id/txt3"
-            android:layout_marginTop="5dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="gsm"
-            android:paddingLeft="10dp"
-            android:paddingRight="6dp"
-            android:id="@+id/gsm_value"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
     android:orientation="vertical"
     android:background="@drawable/background_rounded_single"
     android:layout_width="match_parent"
