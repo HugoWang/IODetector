@@ -23,7 +23,8 @@
             android:paddingRight="6dp"
             android:id="@+id/txt1"
             android:layout_marginTop="5dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#767272" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -56,7 +57,8 @@
             android:paddingRight="6dp"
             android:id="@+id/txt2"
             android:layout_marginTop="5dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#767272" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -89,7 +91,8 @@
             android:paddingRight="6dp"
             android:id="@+id/txt4"
             android:layout_marginTop="5dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#767272" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -111,7 +114,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="9dp"
         android:layout_marginTop="9dp"
-        android:layout_marginRight="9dp">
+        android:layout_marginRight="9dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -123,7 +128,8 @@
             android:id="@+id/txt5"
             android:layout_marginTop="5dp"
             android:textStyle="bold"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:textSize="25dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -136,9 +142,22 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:textColor="#5CB85C"
-            android:textStyle="bold|italic" />
+            android:textStyle="bold|italic"
+            android:textSize="25dp" />
 
     </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Find My Direction"
+        android:background="@drawable/background_rounded_single"
+        android:id="@+id/compass"
+        android:textSize="20sp"
+        android:textColor="#1F497D"
+        android:layout_marginTop="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginLeft="9dp" />
 
 </LinearLayout>
 

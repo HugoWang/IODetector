@@ -1,6 +1,7 @@
 package com.example.kai.iodetector;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -10,13 +11,15 @@ import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
 
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class IndoorOutdoor extends AppCompatActivity implements SensorEventListener {
 
     TextView txt1, txt2, txt4, txt5;
     TextView light, mag, acc, result;
+    Button compass;
     public double light_val, mag_val,acc_val;
     SensorManager sensorManager;
 
@@ -46,6 +49,17 @@ public class IndoorOutdoor extends AppCompatActivity implements SensorEventListe
         result.setTypeface(tf);
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+
+        compass = (Button)findViewById(R.id.compass);
+        compass.setTypeface(tf);
+
+        compass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent compass_intent = new Intent(getApplicationContext(), Compass.class);
+                startActivity(compass_intent);
+            }
+        });
 
     }
 
@@ -111,7 +125,7 @@ public class IndoorOutdoor extends AppCompatActivity implements SensorEventListe
             result.setText("OUTDOOR");
         }
         else{
-            if(mag_val>78){
+            if(mag_val>80){
                 if(acc_val>1.3){
                     result.setText("OUTDOOR_NIGHT");
                 }
