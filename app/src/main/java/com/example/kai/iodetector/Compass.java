@@ -16,7 +16,7 @@ import android.widget.ImageView;
 
 public class Compass extends AppCompatActivity implements SensorEventListener {
 
-    ImageView znzImage;
+    ImageView compassImage;
     float currentDegree = 0f;
     SensorManager mSensorManager;
 
@@ -25,7 +25,7 @@ public class Compass extends AppCompatActivity implements SensorEventListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compass);
 
-        znzImage = (ImageView) findViewById(R.id.znzImage);
+        compassImage = (ImageView) findViewById(R.id.compassImage);
         mSensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
     }
 
@@ -60,16 +60,14 @@ public class Compass extends AppCompatActivity implements SensorEventListener {
         switch (sensorType)
         {
             case Sensor.TYPE_ORIENTATION:
-                // 获取绕Z轴转过的角度。
                 float degree = event.values[0];
-                // 创建旋转动画（反向转过degree度）
+
                 RotateAnimation ra = new RotateAnimation(currentDegree,
                         -degree, Animation.RELATIVE_TO_SELF, 0.5f,
                         Animation.RELATIVE_TO_SELF, 0.5f);
-                // 设置动画的持续时间
                 ra.setDuration(200);
-                // 运行动画
-                znzImage.startAnimation(ra);
+
+                compassImage.startAnimation(ra);
                 currentDegree = -degree;
                 break;
         }
