@@ -2,7 +2,6 @@ package com.example.kai.iodetector;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 
@@ -18,8 +17,6 @@ import com.indooratlas.android.sdk.IALocationManager;
 import com.indooratlas.android.sdk.IALocationRequest;
 
 public class MapsActivity extends FragmentActivity{
-
-
 
     private IALocationListener  mIALocationListener = new IALocationListener() {
 

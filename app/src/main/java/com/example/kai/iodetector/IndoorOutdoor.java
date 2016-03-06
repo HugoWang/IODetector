@@ -13,15 +13,9 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import com.indooratlas.android.sdk.IALocation;
-import com.indooratlas.android.sdk.IALocationListener;
-import com.indooratlas.android.sdk.IALocationManager;
-import com.indooratlas.android.sdk.IALocationRequest;
 
 public class IndoorOutdoor extends AppCompatActivity implements SensorEventListener {
 
