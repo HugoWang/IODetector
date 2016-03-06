@@ -3,6 +3,8 @@
     package="com.example.kai.iodetector">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
@@ -17,13 +19,32 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".Compass"
             android:label="@string/title_activity_compass"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="com.indooratlas.android.sdk.API_KEY"
+            android:value="bf77de61-bedc-49ff-bfdf-1d40d266abcc" />
+        <meta-data
+            android:name="com.indooratlas.android.sdk.API_SECRET"
+            android:value="eOlslPWRUhoyd8eriWFIo9zpcnt7BJoRtb8f1ZiAv9%lrr0sm%LQr9tzlXA%WOasd1Glt0Q4vq5bTSDxMEbV4EnEBJHwS(Bb11icZZyD!D!iGZKgSiti%5YqWf9QhRZX" />
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyB4zdG2RHAyR6XpedqyuvGNXCZbtuAEmLo" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

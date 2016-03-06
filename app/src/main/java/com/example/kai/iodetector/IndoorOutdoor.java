@@ -1,5 +1,6 @@
 package com.example.kai.iodetector;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -9,11 +10,18 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.indooratlas.android.sdk.IALocation;
+import com.indooratlas.android.sdk.IALocationListener;
+import com.indooratlas.android.sdk.IALocationManager;
+import com.indooratlas.android.sdk.IALocationRequest;
 
 public class IndoorOutdoor extends AppCompatActivity implements SensorEventListener {
 
@@ -22,11 +30,20 @@ public class IndoorOutdoor extends AppCompatActivity implements SensorEventListe
     Button compass;
     public double light_val, mag_val,acc_val;
     SensorManager sensorManager;
+    private final int CODE_PERMISSIONS = 0;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_indoor_outdoor);
+        String[] neededPermissions = new String[]{
+            Manifest.permission.CHANGE_WIFI_STATE,
+                    Manifest.permission.ACCESS_WIFI_STATE,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+        };
+        ActivityCompat.requestPermissions(this, neededPermissions, CODE_PERMISSIONS);
 
         Typeface tf = Typeface.createFromAsset(getAssets(),"RobotoCondensed-Regular.ttf");
 
@@ -56,11 +73,18 @@ public class IndoorOutdoor extends AppCompatActivity implements SensorEventListe
         compass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent compass_intent = new Intent(getApplicationContext(), Compass.class);
+                //Intent compass_intent = new Intent(getApplicationContext(), Compass.class);
+                Intent compass_intent = new Intent(getApplicationContext(), MapsActivity.class);
                 startActivity(compass_intent);
             }
         });
 
+    }
+
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        //Handle if any of the permissions are denied, in grantResults
     }
 
     @Override
@@ -79,15 +103,15 @@ public class IndoorOutdoor extends AppCompatActivity implements SensorEventListe
         sensorManager.registerListener(this,
                 sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
                 SensorManager.SENSOR_DELAY_GAME);
+
+
     }
 
     @Override
-    protected void onStop()
-    {
+    protected void onStop() {
         sensorManager.unregisterListener(this);
         super.onStop();
     }
-
 
 
     @Override
