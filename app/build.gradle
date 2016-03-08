@@ -28,7 +28,7 @@ dependencies {
     compile 'com.google.android.gms:play-services:7.8.0'
 }
 
-repositories{
+repositories {
     maven {
         url "http://indooratlas-ltd.bintray.com/mvn-public"
     }
