@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF9933"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#337AB7">
 
     <LinearLayout
         android:orientation="vertical"
@@ -128,7 +128,7 @@
             android:id="@+id/txt5"
             android:layout_marginTop="5dp"
             android:textStyle="bold"
-            android:textColor="#ffffff"
+            android:textColor="#fff"
             android:textSize="25dp" />
 
         <TextView
@@ -141,23 +141,20 @@
             android:id="@+id/result"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:textColor="#5CB85C"
+            android:textColor="#ffffff"
             android:textStyle="bold|italic"
             android:textSize="25dp" />
 
     </LinearLayout>
 
-    <Button
-        android:layout_width="match_parent"
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Find My Direction"
-        android:background="@drawable/background_rounded_single"
-        android:id="@+id/compass"
-        android:textSize="20sp"
-        android:textColor="#1F497D"
-        android:layout_marginTop="9dp"
-        android:layout_marginRight="9dp"
-        android:layout_marginLeft="9dp" />
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_dialog_map" />
+
 
 </LinearLayout>
 

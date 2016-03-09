@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.kai.iodetector.IndoorOutdoor">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/compass"
+        android:orderInCategory="1"
+        android:title="Compass"
+        android:icon="@drawable/ic_compass"
+        app:showAsAction="ifRoom" />
 </menu>

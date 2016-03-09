@@ -3,6 +3,6 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="rounded_container">#FFFF00</color>
-    <color name="rounded_container_result">#337AB7</color>
+    <color name="rounded_container">#FFFFFF</color>
+    <color name="rounded_container_result">#5CB85C</color>
 </resources>
