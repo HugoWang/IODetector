@@ -45,10 +45,6 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".FloorPlan"
-            android:label="@string/title_activity_floor_plan"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
